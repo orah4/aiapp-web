@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Encryption Result</title>
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+            color: #333; /* Dark text color */
+            font-family: Arial, sans-serif; /* Custom font */
+        }
+        .container {
+            background-color: #ffffff; /* White background for container */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Padding inside container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        h1 {
+            color: #007bff; /* Bootstrap primary color for header */
+        }
+        .legend {
+            background-color: #007bff; /* Primary color */
+            color: white; /* White text for legend */
+            padding: 10px; /* Padding for legend */
+            border-radius: 5px; /* Rounded corners */
+            margin-bottom: 15px; /* Space below legend */
+        }
+        .encrypted-data {
+            background-color: #f1f1f1; /* Light gray background for data */
+            border: 1px solid #ccc; /* Border for data area */
+            border-radius: 5px; /* Rounded corners */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">File Encrypted Successfully!</h1>
+        <p class="text-center">Your file <strong>{{ filename }}</strong> has been encrypted.</p>
+        
+        <div class="legend text-center">
+            <strong>Legend:</strong> Encrypted Data displayed below in Base64 format.
+        </div>
+        
+        <h5>Encrypted Data (Base64):</h5>
+        <textarea class="form-control encrypted-data" rows="5" readonly>{{ encrypted_data }}</textarea>
+        
+        <div class="text-center mt-3">
+            <a href="{{ url_for('decrypt', filename=filename) }}" class="btn btn-success">Decrypt File</a>
+            <a href="{{ url_for('graph') }}" class="btn btn-info">View Network Graph</a>
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Back</a>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
